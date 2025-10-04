@@ -2,6 +2,7 @@ import 'package:sharpsheel/screens/fifth_screen.dart';
 import 'package:sharpsheel/screens/first_screen.dart';
 import 'package:sharpsheel/screens/fourth_screen.dart';
 import 'package:sharpsheel/screens/second_screen.dart';
+import 'package:sharpsheel/screens/seventh_screen.dart';
 import 'package:sharpsheel/screens/sixth_screen.dart';
 import 'package:sharpsheel/screens/third_screen.dart';
 import 'package:sharpsheel/screens/users_list.dart';
@@ -14,4 +15,5 @@ dynamic routes() => {
   FourthScreen.routeName: (context) => FourthScreen(),
   FifthScreen.routeName: (context) => FifthScreen(),
   SixthScreen.routeName: (ctx) => SixthScreen(),
+  SeventhScreen.routeName: (_) => SeventhScreen(),
 };

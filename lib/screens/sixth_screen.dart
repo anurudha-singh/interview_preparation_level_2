@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sharpsheel/screens/fifth_screen.dart';
+import 'package:sharpsheel/screens/seventh_screen.dart';
 
 class SixthScreen extends StatefulWidget {
   const SixthScreen({super.key});
@@ -44,6 +45,12 @@ class _SixthScreenState extends State<SixthScreen> {
                   child: Text('Push Fifth Screen'),
                 ),
               ],
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, SeventhScreen.routeName);
+              },
+              child: Text('Form implementation using Global Key validation'),
             ),
           ],
         ),
