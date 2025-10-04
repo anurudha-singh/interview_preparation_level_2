@@ -4,7 +4,7 @@ import 'dart:math';
 class ListGenerators extends StatefulWidget {
   const ListGenerators({super.key});
   static String routeName = 'list_generators';
-  
+
   @override
   State<ListGenerators> createState() => _ListGeneratorsState();
 }
@@ -12,7 +12,7 @@ class ListGenerators extends StatefulWidget {
 class _ListGeneratorsState extends State<ListGenerators> {
   final ScrollController _scrollController = ScrollController();
   bool _showFloatingButton = false;
-  
+
   // Sample data
   final List<Product> _products = List.generate(50, (index) {
     final random = Random();
@@ -25,23 +25,27 @@ class _ListGeneratorsState extends State<ListGenerators> {
       imageUrl: 'https://picsum.photos/200/200?random=$index',
     );
   });
-  
+
   static const List<String> _categories = [
-    'Electronics', 'Clothing', 'Books', 'Home & Garden', 'Sports'
+    'Electronics',
+    'Clothing',
+    'Books',
+    'Home & Garden',
+    'Sports',
   ];
-  
+
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(_scrollListener);
   }
-  
+
   @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
-  
+
   void _scrollListener() {
     if (_scrollController.offset > 300 && !_showFloatingButton) {
       setState(() => _showFloatingButton = true);
@@ -49,7 +53,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
       setState(() => _showFloatingButton = false);
     }
   }
-  
+
   void _scrollToTop() {
     _scrollController.animateTo(
       0,
@@ -66,22 +70,22 @@ class _ListGeneratorsState extends State<ListGenerators> {
         slivers: [
           // 1. SliverAppBar - Collapsible app bar with parallax effect
           _buildSliverAppBar(),
-          
+
           // 2. SliverToBoxAdapter - Single widget in sliver
           _buildWelcomeSection(),
-          
+
           // 3. SliverPersistentHeader - Sticky categories header
           _buildCategoriesHeader(),
-          
+
           // 4. SliverGrid - Grid layout
           _buildFeaturedProductsGrid(),
-          
+
           // 5. SliverToBoxAdapter - Section divider
           _buildSectionDivider('All Products'),
-          
+
           // 6. SliverList - Efficient list
           _buildProductsList(),
-          
+
           // 7. SliverFillRemaining - Fill remaining space
           _buildFooterSection(),
         ],
@@ -95,7 +99,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
           : null,
     );
   }
-  
+
   // 1. Collapsible SliverAppBar with parallax background
   Widget _buildSliverAppBar() {
     return SliverAppBar(
@@ -106,21 +110,14 @@ class _ListGeneratorsState extends State<ListGenerators> {
       flexibleSpace: FlexibleSpaceBar(
         title: Text(
           'Sliver Examples',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         background: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                Colors.deepPurple,
-                Colors.purple,
-                Colors.purpleAccent,
-              ],
+              colors: [Colors.deepPurple, Colors.purple, Colors.purpleAccent],
             ),
           ),
           child: Stack(
@@ -140,18 +137,11 @@ class _ListGeneratorsState extends State<ListGenerators> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.layers,
-                      size: 60,
-                      color: Colors.white70,
-                    ),
+                    Icon(Icons.layers, size: 60, color: Colors.white70),
                     SizedBox(height: 8),
                     Text(
                       'Advanced Scrolling',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 16,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 16),
                     ),
                   ],
                 ),
@@ -168,7 +158,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
       ],
     );
   }
-  
+
   // 2. Welcome section using SliverToBoxAdapter
   Widget _buildWelcomeSection() {
     return SliverToBoxAdapter(
@@ -199,14 +189,17 @@ class _ListGeneratorsState extends State<ListGenerators> {
                   ),
                 ),
                 SizedBox(height: 16),
-                Row(
-                  children: [
-                    _buildFeatureChip('SliverAppBar', Icons.view_agenda),
-                    SizedBox(width: 8),
-                    _buildFeatureChip('SliverGrid', Icons.grid_view),
-                    SizedBox(width: 8),
-                    _buildFeatureChip('SliverList', Icons.list),
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _buildFeatureChip('SliverAppBar', Icons.view_agenda),
+                      SizedBox(width: 8),
+                      _buildFeatureChip('SliverGrid', Icons.grid_view),
+                      SizedBox(width: 8),
+                      _buildFeatureChip('SliverList', Icons.list),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -215,18 +208,15 @@ class _ListGeneratorsState extends State<ListGenerators> {
       ),
     );
   }
-  
+
   Widget _buildFeatureChip(String label, IconData icon) {
     return Chip(
       avatar: Icon(icon, size: 16, color: Colors.white),
-      label: Text(
-        label,
-        style: TextStyle(color: Colors.white, fontSize: 12),
-      ),
+      label: Text(label, style: TextStyle(color: Colors.white, fontSize: 12)),
       backgroundColor: Colors.deepPurple,
     );
   }
-  
+
   // 3. Sticky header using SliverPersistentHeader
   Widget _buildCategoriesHeader() {
     return SliverPersistentHeader(
@@ -234,11 +224,11 @@ class _ListGeneratorsState extends State<ListGenerators> {
       delegate: _CategoriesHeaderDelegate(),
     );
   }
-  
+
   // 4. Grid layout using SliverGrid
   Widget _buildFeaturedProductsGrid() {
     final featuredProducts = _products.take(6).toList();
-    
+
     return SliverPadding(
       padding: EdgeInsets.symmetric(horizontal: 16),
       sliver: SliverGrid(
@@ -248,17 +238,14 @@ class _ListGeneratorsState extends State<ListGenerators> {
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
         ),
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            final product = featuredProducts[index];
-            return _buildGridProductCard(product, isFeatured: true);
-          },
-          childCount: featuredProducts.length,
-        ),
+        delegate: SliverChildBuilderDelegate((context, index) {
+          final product = featuredProducts[index];
+          return _buildGridProductCard(product, isFeatured: true);
+        }, childCount: featuredProducts.length),
       ),
     );
   }
-  
+
   Widget _buildGridProductCard(Product product, {bool isFeatured = false}) {
     return Card(
       elevation: isFeatured ? 6 : 2,
@@ -283,7 +270,10 @@ class _ListGeneratorsState extends State<ListGenerators> {
                       alignment: Alignment.topRight,
                       child: Container(
                         margin: EdgeInsets.all(8),
-                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.orange,
                           borderRadius: BorderRadius.circular(12),
@@ -312,19 +302,13 @@ class _ListGeneratorsState extends State<ListGenerators> {
                 children: [
                   Text(
                     product.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     product.category,
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 12,
-                    ),
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -356,7 +340,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
       ),
     );
   }
-  
+
   // 5. Section divider
   Widget _buildSectionDivider(String title) {
     return SliverToBoxAdapter(
@@ -390,20 +374,17 @@ class _ListGeneratorsState extends State<ListGenerators> {
       ),
     );
   }
-  
+
   // 6. Products list using SliverList
   Widget _buildProductsList() {
     return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          final product = _products[index];
-          return _buildListProductCard(product);
-        },
-        childCount: _products.length,
-      ),
+      delegate: SliverChildBuilderDelegate((context, index) {
+        final product = _products[index];
+        return _buildListProductCard(product);
+      }, childCount: _products.length),
     );
   }
-  
+
   Widget _buildListProductCard(Product product) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
@@ -463,7 +444,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
       ),
     );
   }
-  
+
   // 7. Footer section using SliverFillRemaining
   Widget _buildFooterSection() {
     return SliverFillRemaining(
@@ -473,11 +454,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.check_circle_outline,
-              size: 64,
-              color: Colors.green,
-            ),
+            Icon(Icons.check_circle_outline, size: 64, color: Colors.green),
             SizedBox(height: 16),
             Text(
               'You\'ve reached the end!',
@@ -490,10 +467,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
             SizedBox(height: 8),
             Text(
               'Thanks for exploring our Slivers demo.',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
-              ),
+              style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
             SizedBox(height: 24),
             ElevatedButton.icon(
@@ -511,7 +485,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
       ),
     );
   }
-  
+
   void _showSliverInfo(BuildContext context) {
     showDialog(
       context: context,
@@ -525,12 +499,30 @@ class _ListGeneratorsState extends State<ListGenerators> {
               children: [
                 Text('This demo showcases different sliver widgets:'),
                 SizedBox(height: 12),
-                _buildInfoItem('SliverAppBar', 'Collapsible app bar with parallax effect'),
-                _buildInfoItem('SliverToBoxAdapter', 'Wraps regular widgets in slivers'),
-                _buildInfoItem('SliverPersistentHeader', 'Sticky header that stays visible'),
-                _buildInfoItem('SliverGrid', 'Efficient grid layout for slivers'),
-                _buildInfoItem('SliverList', 'Efficient list layout for slivers'),
-                _buildInfoItem('SliverFillRemaining', 'Fills remaining scroll space'),
+                _buildInfoItem(
+                  'SliverAppBar',
+                  'Collapsible app bar with parallax effect',
+                ),
+                _buildInfoItem(
+                  'SliverToBoxAdapter',
+                  'Wraps regular widgets in slivers',
+                ),
+                _buildInfoItem(
+                  'SliverPersistentHeader',
+                  'Sticky header that stays visible',
+                ),
+                _buildInfoItem(
+                  'SliverGrid',
+                  'Efficient grid layout for slivers',
+                ),
+                _buildInfoItem(
+                  'SliverList',
+                  'Efficient list layout for slivers',
+                ),
+                _buildInfoItem(
+                  'SliverFillRemaining',
+                  'Fills remaining scroll space',
+                ),
                 SizedBox(height: 12),
                 Text(
                   'All these work together in a CustomScrollView for advanced scrolling effects!',
@@ -549,7 +541,7 @@ class _ListGeneratorsState extends State<ListGenerators> {
       },
     );
   }
-  
+
   Widget _buildInfoItem(String title, String description) {
     return Padding(
       padding: EdgeInsets.only(bottom: 8),
@@ -577,12 +569,16 @@ class _ListGeneratorsState extends State<ListGenerators> {
 class _CategoriesHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   double get minExtent => 60.0;
-  
+
   @override
   double get maxExtent => 60.0;
-  
+
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -606,7 +602,7 @@ class _CategoriesHeaderDelegate extends SliverPersistentHeaderDelegate {
       ),
     );
   }
-  
+
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
     return false;
@@ -621,7 +617,7 @@ class Product {
   final String category;
   final double rating;
   final String imageUrl;
-  
+
   Product({
     required this.id,
     required this.name,
