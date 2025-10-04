@@ -12,6 +12,7 @@ class _SeventhScreenState extends State<SeventhScreen> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
 
   @override
   void dispose() {
@@ -32,6 +33,7 @@ class _SeventhScreenState extends State<SeventhScreen> {
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
+            autovalidateMode: _autovalidateMode,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -44,6 +46,14 @@ class _SeventhScreenState extends State<SeventhScreen> {
                   SizedBox(height: 20),
                   TextFormField(
                     controller: _usernameController,
+                    onChanged: (value) {
+                      // Enable auto-validation after user starts typing
+                      if (_autovalidateMode == AutovalidateMode.disabled) {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.onUserInteraction;
+                        });
+                      }
+                    },
                     decoration: InputDecoration(
                       labelText: 'Username',
                       border: OutlineInputBorder(
@@ -62,6 +72,14 @@ class _SeventhScreenState extends State<SeventhScreen> {
                   TextFormField(
                     controller: _passwordController,
                     obscureText: true, // Added for password security
+                    onChanged: (value) {
+                      // Enable auto-validation after user starts typing
+                      if (_autovalidateMode == AutovalidateMode.disabled) {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.onUserInteraction;
+                        });
+                      }
+                    },
                     decoration: InputDecoration(
                       labelText: 'Password',
                       border: OutlineInputBorder(
@@ -83,6 +101,11 @@ class _SeventhScreenState extends State<SeventhScreen> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
+                      // Enable validation mode for immediate feedback
+                      setState(() {
+                        _autovalidateMode = AutovalidateMode.always;
+                      });
+                      
                       if (_formKey.currentState!.validate()) {
                         // Form is valid, proceed with login
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -96,10 +119,13 @@ class _SeventhScreenState extends State<SeventhScreen> {
                         // Clear the form after successful validation
                         _usernameController.clear();
                         _passwordController.clear();
+                        // Reset validation mode
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.disabled;
+                        });
                         // Dismiss keyboard
                       } else {
-                        // Form is invalid, show
-                        //error message
+                        // Form is invalid, show error message
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Please fix the errors above'),
