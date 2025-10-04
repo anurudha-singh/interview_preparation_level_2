@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
+import 'package:sharpsheel/screens/animated_container.dart';
 import 'package:sharpsheel/screens/fifth_screen.dart';
 import 'package:sharpsheel/screens/first_screen.dart';
 import 'package:sharpsheel/screens/flutter_testing_guide.dart';
 import 'package:sharpsheel/screens/fourth_screen.dart';
+import 'package:sharpsheel/screens/list_generators.dart';
 import 'package:sharpsheel/screens/my_home_page.dart';
 import 'package:sharpsheel/screens/second_screen.dart';
 import 'package:sharpsheel/screens/seventh_screen.dart';
@@ -23,4 +26,7 @@ dynamic routes() => {
       const FlutterKeysImplementation(),
   FlutterTestingGuide.routeName: (context) => const FlutterTestingGuide(),
   TrickiestQuizzess.routeName: (context) => const TrickiestQuizzess(),
+  AnimatedContainerEverySecond.routeName: (context) =>
+      const AnimatedContainerEverySecond(),
+  ListGenerators.routeName: (context) => const ListGenerators(),
 };

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sharpsheel/screens/animated_container.dart';
 import 'package:sharpsheel/screens/first_screen.dart';
+import 'package:sharpsheel/screens/list_generators.dart';
 import 'package:sharpsheel/screens/second_screen.dart';
 import 'package:sharpsheel/screens/third_screen.dart';
 import 'package:sharpsheel/screens/trickiest_quizzes.dart';
@@ -149,6 +151,18 @@ class AppDrawer extends StatelessWidget {
                       icon: Icons.quiz_outlined,
                       title: 'Flutter Trickiest Quizzess',
                       route: TrickiestQuizzess.routeName,
+                    ),
+                    _buildDrawerItem(
+                      context,
+                      icon: Icons.quiz_outlined,
+                      title: 'Animate container every second',
+                      route: AnimatedContainerEverySecond.routeName,
+                    ),
+                    _buildDrawerItem(
+                      context,
+                      icon: Icons.quiz_outlined,
+                      title: 'List Generators',
+                      route: ListGenerators.routeName,
                     ),
 
                     // Divider
