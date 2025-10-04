@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:Sharpshell/screens/first_screen.dart';
 import 'package:Sharpshell/screens/second_screen.dart';
 import 'package:Sharpshell/screens/third_screen.dart';
+import 'package:Sharpshell/screens/types_of_keys.dart';
+import 'package:flutter/material.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -128,6 +129,12 @@ class AppDrawer extends StatelessWidget {
                       icon: Icons.assignment_outlined,
                       title: 'Seventh Screen (Form)',
                       route: '/seventh_screen',
+                    ),
+                    _buildDrawerItem(
+                      context,
+                      icon: Icons.key_outlined,
+                      title: 'Flutter Keys Implementation',
+                      route: FlutterKeysImplementation.routeName,
                     ),
 
                     // Divider
