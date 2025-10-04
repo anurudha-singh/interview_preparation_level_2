@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sharpsheel/screens/first_screen.dart';
 import 'package:sharpsheel/screens/second_screen.dart';
 import 'package:sharpsheel/screens/third_screen.dart';
+import 'package:sharpsheel/screens/trickiest_quizzes.dart';
 import 'package:sharpsheel/screens/types_of_keys.dart';
 import 'package:sharpsheel/screens/flutter_testing_guide.dart';
 
@@ -143,7 +144,13 @@ class AppDrawer extends StatelessWidget {
                       title: 'Flutter Testing Guide',
                       route: FlutterTestingGuide.routeName,
                     ),
-                    
+                    _buildDrawerItem(
+                      context,
+                      icon: Icons.quiz_outlined,
+                      title: 'Flutter Trickiest Quizzess',
+                      route: TrickiestQuizzess.routeName,
+                    ),
+
                     // Divider
                     Padding(
                       padding: EdgeInsets.symmetric(

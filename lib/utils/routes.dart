@@ -7,6 +7,7 @@ import 'package:sharpsheel/screens/second_screen.dart';
 import 'package:sharpsheel/screens/seventh_screen.dart';
 import 'package:sharpsheel/screens/sixth_screen.dart';
 import 'package:sharpsheel/screens/third_screen.dart';
+import 'package:sharpsheel/screens/trickiest_quizzes.dart';
 import 'package:sharpsheel/screens/types_of_keys.dart';
 
 dynamic routes() => {
@@ -21,4 +22,5 @@ dynamic routes() => {
   FlutterKeysImplementation.routeName: (context) =>
       const FlutterKeysImplementation(),
   FlutterTestingGuide.routeName: (context) => const FlutterTestingGuide(),
+  TrickiestQuizzess.routeName: (context) => const TrickiestQuizzess(),
 };
