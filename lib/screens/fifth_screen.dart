@@ -18,6 +18,16 @@ class _FifthScreenState extends State<FifthScreen> {
     "Michael Johnson Data Scientist at DataWorks",
     "Emily Davis Marketing Specialist at MarketMinds",
     "David Wilson Sales Executive at SalesForce",
+    "Alice Brown Backend Developer at CodeCraft",
+    "Bob Johnson Frontend Developer at WebWorks",
+    "Sarah Williams DevOps Engineer at CloudTech",
+    "Tom Anderson QA Engineer at TestLab",
+    "Lisa Garcia UI Designer at DesignHub",
+    "Mark Thompson Mobile Developer at AppFactory",
+    "Rachel White Data Analyst at Analytics Pro",
+    "Kevin Brown Security Engineer at SecureNet",
+    "Amy Davis Product Owner at ProductCo",
+    "Steve Miller Tech Lead at Innovation Labs",
   ]);
 
   void addItemToList(String newEmployee) {
@@ -42,20 +52,21 @@ class _FifthScreenState extends State<FifthScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Text('Fifth Screen'),
-            SizedBox(height: 20),
-
             SizedBox(height: 20),
             ValueListenableBuilder<List<String>>(
               valueListenable: employeesNotifier,
               builder: (context, employees, child) => Container(
-                height: 200,
+                height:
+                    400, // Increased height to make scrolling more noticeable
                 color: Colors.amber,
                 child: ListView.builder(
+                  key: PageStorageKey<String>('employeesList'),
                   itemCount: employees.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: Text('Index ${index + 1} ${employees[index]}'),
+                      title: Text('Index ${index + 1}: ${employees[index]}'),
+                      subtitle: Text('Employee #${index + 1}'),
+                      leading: CircleAvatar(child: Text('${index + 1}')),
                     );
                   },
                 ),
@@ -77,23 +88,19 @@ class _FifthScreenState extends State<FifthScreen> {
                       'Add item to the list button pressed ${employeesNotifier.value.length}',
                     );
                     addItemToList(
-                      "Anurudh Singh Software Engineer at SharpShell.AI",
+                      "New Employee #${employeesNotifier.value.length + 1}",
                     );
                   },
                   child: Text('Add item to the list'),
                 ),
               ],
             ),
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const SixthScreen(),
-                  ),
-                );
+                Navigator.pushNamed(context, SixthScreen.routeName);
               },
-              child: Text('go to sixth screen'),
+              child: Text('Go to Sixth Screen'),
             ),
           ],
         ),

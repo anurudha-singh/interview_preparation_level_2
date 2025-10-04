@@ -12,6 +12,9 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // Global PageStorageBucket for the entire app
+  static final PageStorageBucket _bucket = PageStorageBucket();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // Wrap the entire app with PageStorage
+      builder: (context, child) {
+        return PageStorage(bucket: _bucket, child: child!);
+      },
       routes: routes(),
     );
   }
