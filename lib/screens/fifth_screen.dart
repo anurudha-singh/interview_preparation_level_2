@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:Sharpshell/screens/sixth_screen.dart';
-import 'package:Sharpshell/utils/app_drawer.dart';
+import 'package:sharpsheel/screens/sixth_screen.dart';
+import 'package:sharpsheel/utils/app_drawer.dart';
 
 class FifthScreen extends StatefulWidget {
   static String routeName = '/fifthScreen';

@@ -1,7 +1,7 @@
 import 'dart:isolate';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:Sharpshell/utils/size_helper.dart';
+import 'package:sharpsheel/utils/size_helper.dart';
 
 class ThirdScreen extends StatefulWidget {
   const ThirdScreen({super.key});

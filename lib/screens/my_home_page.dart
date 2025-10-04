@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:Sharpshell/utils/app_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:Sharpshell/model/users_model.dart';
-import 'package:Sharpshell/screens/first_screen.dart';
+import 'package:sharpsheel/model/users_model.dart';
+import 'package:sharpsheel/screens/first_screen.dart';
+import 'package:sharpsheel/utils/app_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

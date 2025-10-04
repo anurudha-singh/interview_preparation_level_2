@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:Sharpshell/screens/fourth_screen.dart';
-import 'package:Sharpshell/screens/second_screen.dart';
-import 'package:Sharpshell/screens/third_screen.dart';
-import 'package:Sharpshell/screens/my_home_page.dart';
-import 'package:Sharpshell/utils/resuable_widget.dart';
-import 'package:Sharpshell/utils/size_helper.dart';
-import 'package:Sharpshell/utils/app_drawer.dart';
+import 'package:sharpsheel/screens/fourth_screen.dart';
+import 'package:sharpsheel/screens/second_screen.dart';
+import 'package:sharpsheel/utils/app_drawer.dart';
+import 'package:sharpsheel/utils/size_helper.dart';
 
 class FirstScreen extends StatefulWidget {
   static String routeName = '/firstScreen';

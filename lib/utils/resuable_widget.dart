@@ -1,6 +1,6 @@
 // Helper method to build drawer items with consistent styling
 import 'package:flutter/material.dart';
-import 'package:Sharpshell/utils/size_helper.dart';
+import 'package:sharpsheel/utils/size_helper.dart';
 
 Widget buildDrawerItem({
   required IconData icon,

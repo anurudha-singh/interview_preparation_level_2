@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:Sharpshell/utils/routes.dart';
-import 'package:Sharpshell/utils/size_helper.dart';
+import 'utils/routes.dart';
+import 'utils/size_helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

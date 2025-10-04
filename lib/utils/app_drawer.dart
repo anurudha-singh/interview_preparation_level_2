@@ -1,8 +1,9 @@
-import 'package:Sharpshell/screens/first_screen.dart';
-import 'package:Sharpshell/screens/second_screen.dart';
-import 'package:Sharpshell/screens/third_screen.dart';
-import 'package:Sharpshell/screens/types_of_keys.dart';
 import 'package:flutter/material.dart';
+import 'package:sharpsheel/screens/first_screen.dart';
+import 'package:sharpsheel/screens/second_screen.dart';
+import 'package:sharpsheel/screens/third_screen.dart';
+import 'package:sharpsheel/screens/types_of_keys.dart';
+import 'package:sharpsheel/screens/flutter_testing_guide.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -136,7 +137,13 @@ class AppDrawer extends StatelessWidget {
                       title: 'Flutter Keys Implementation',
                       route: FlutterKeysImplementation.routeName,
                     ),
-
+                    _buildDrawerItem(
+                      context,
+                      icon: Icons.quiz_outlined,
+                      title: 'Flutter Testing Guide',
+                      route: FlutterTestingGuide.routeName,
+                    ),
+                    
                     // Divider
                     Padding(
                       padding: EdgeInsets.symmetric(
