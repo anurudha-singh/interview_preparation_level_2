@@ -164,6 +164,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 100,
                 child: Text('Hello World'),
               ),
+              // Text(
+              //   'Received argument from First Screen: $receivedArgumentFromScreenOne',
+              // ),
               Row(
                 children: [
                   Expanded(

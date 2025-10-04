@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sharpsheel/screens/first_screen.dart';
 import 'package:sharpsheel/screens/third_screen.dart';
+import 'package:sharpsheel/utils/resuable_widget.dart';
 import 'package:sharpsheel/utils/size_helper.dart';
 
 class SecondScreen extends StatefulWidget {
@@ -14,6 +15,10 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
+    // Get the argument passed from the first screen
+    String receivedArgumentFromScreenOne =
+        ModalRoute.of(context)?.settings.arguments as String;
+
     // Initialize SizeHelper with current context
     SizeHelper.init(context);
 
@@ -23,7 +28,7 @@ class _SecondScreenState extends State<SecondScreen> {
         //It gives you the actual size constraints of the parent so you can adapt your UI dynamically.
         builder: (context, constraints) {
           if (SizeHelper.screenWidth > 600) {
-            return _buildWideContainers();
+            return buildWideContainers();
           } else {
             return Center(
               child: Column(
@@ -46,6 +51,10 @@ class _SecondScreenState extends State<SecondScreen> {
                           ),
                         ),
                         SizedBox(height: 10),
+                        Text(
+                          'Date Received from screen 1 using Routes:: ${receivedArgumentFromScreenOne}',
+                        ),
+                        SizedBox(height: 20),
                         Text(
                           'Screen: ${SizeHelper.screenWidth.toInt()} x ${SizeHelper.screenHeight.toInt()}',
                           style: TextStyle(color: Colors.grey.shade600),
@@ -86,66 +95,6 @@ class _SecondScreenState extends State<SecondScreen> {
           }
         },
       ),
-    );
-  }
-
-  Widget _buildWideContainers() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          width: SizeHelper.getWidthPercentage(40),
-          height: SizeHelper.getHeightPercentage(30),
-          decoration: BoxDecoration(
-            color: Colors.blue.shade300,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Wide Container 1',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'Width: ${SizeHelper.getWidthPercentage(40).toInt()}px',
-                  style: TextStyle(color: Colors.white70),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Container(
-          width: SizeHelper.getWidthPercentage(40),
-          height: SizeHelper.getHeightPercentage(30),
-          decoration: BoxDecoration(
-            color: Colors.green.shade300,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Wide Container 2',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'Height: ${SizeHelper.getHeightPercentage(30).toInt()}px',
-                  style: TextStyle(color: Colors.white70),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
