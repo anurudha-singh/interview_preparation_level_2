@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sharpsheel/screens/fourth_screen.dart';
 import 'package:sharpsheel/screens/second_screen.dart';
 import 'package:sharpsheel/screens/users_list.dart';
 import 'package:sharpsheel/utils/size_helper.dart';
@@ -85,6 +86,17 @@ class _FirstScreenState extends State<FirstScreen> {
                   Navigator.pushNamed(context, SecondScreen.routeName);
                 },
                 child: Text('Go to Second Screen'),
+              ),
+            ),
+            SizedBox(height: 20),
+            SizedBox(
+              width: SizeHelper.getWidthPercentage(70), // 70% of screen width
+              height: SizeHelper.getHeightPercentage(6), // 6% of screen height
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, FourthScreen.routeName);
+                },
+                child: Text('Go to Fourth Screen'),
               ),
             ),
             // Display screen info
