@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sharpsheel/screens/sixth_scree.dart';
+import 'package:sharpsheel/screens/sixth_screen.dart';
 
 class FifthScreen extends StatefulWidget {
   static String routeName = '/fifthScreen';
@@ -46,6 +46,9 @@ class _FifthScreenState extends State<FifthScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(
+      'Fifth screen was rebuilt',
+    ); //Perfect it won't print on the console if we are using ValueNotifier along with ValueListenableBuilder
     return Scaffold(
       appBar: AppBar(title: Text('Fifth Screen')),
       body: Center(

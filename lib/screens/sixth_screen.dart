@@ -15,7 +15,7 @@ class _SixthScreenState extends State<SixthScreen> {
       appBar: AppBar(title: Text('Sixth Screen')),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'Sixth Screen',
