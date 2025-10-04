@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sharpsheel/screens/sixth_screen.dart';
+import 'package:Sharpshell/screens/sixth_screen.dart';
+import 'package:Sharpshell/utils/app_drawer.dart';
 
 class FifthScreen extends StatefulWidget {
   static String routeName = '/fifthScreen';
@@ -51,6 +52,7 @@ class _FifthScreenState extends State<FifthScreen> {
     ); //Perfect it won't print on the console if we are using ValueNotifier along with ValueListenableBuilder
     return Scaffold(
       appBar: AppBar(title: Text('Fifth Screen')),
+      drawer: AppDrawer(), // Add the persistent drawer
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

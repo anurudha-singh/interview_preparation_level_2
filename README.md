@@ -1,4 +1,4 @@
-# SharpSheel 🚀
+# Sharpshell 🚀
 
 A comprehensive Flutter demonstration project showcasing advanced Flutter concepts, platform channels, isolates, responsive design, and state management.
 
@@ -119,7 +119,7 @@ Container(
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd sharpsheel
+cd Sharpshell
 ```
 
 ### 2. Install Dependencies

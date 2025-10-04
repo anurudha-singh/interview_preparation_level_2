@@ -1,4 +1,4 @@
-package com.example.sharpsheel
+package com.example.Sharpshell
 
 import android.content.Context
 import android.os.BatteryManager

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:sharpsheel/utils/routes.dart';
-import 'package:sharpsheel/utils/size_helper.dart';
+import 'package:Sharpshell/utils/routes.dart';
+import 'package:Sharpshell/utils/size_helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         return PageStorage(bucket: _bucket, child: child!);
       },
       routes: routes(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

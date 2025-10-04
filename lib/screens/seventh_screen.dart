@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:Sharpshell/utils/app_drawer.dart';
 
 class SeventhScreen extends StatefulWidget {
   static String routeName = '/seventh_screen';
@@ -30,6 +31,7 @@ class _SeventhScreenState extends State<SeventhScreen> {
         resizeToAvoidBottomInset: true,
         // backgroundColor: Colors.blueGrey,
         appBar: AppBar(title: Text('Form Implementation using Global Key')),
+        drawer: AppDrawer(), // Add the persistent drawer
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -50,7 +52,8 @@ class _SeventhScreenState extends State<SeventhScreen> {
                       // Enable auto-validation after user starts typing
                       if (_autovalidateMode == AutovalidateMode.disabled) {
                         setState(() {
-                          _autovalidateMode = AutovalidateMode.onUserInteraction;
+                          _autovalidateMode =
+                              AutovalidateMode.onUserInteraction;
                         });
                       }
                     },
@@ -76,7 +79,8 @@ class _SeventhScreenState extends State<SeventhScreen> {
                       // Enable auto-validation after user starts typing
                       if (_autovalidateMode == AutovalidateMode.disabled) {
                         setState(() {
-                          _autovalidateMode = AutovalidateMode.onUserInteraction;
+                          _autovalidateMode =
+                              AutovalidateMode.onUserInteraction;
                         });
                       }
                     },
@@ -105,7 +109,7 @@ class _SeventhScreenState extends State<SeventhScreen> {
                       setState(() {
                         _autovalidateMode = AutovalidateMode.always;
                       });
-                      
+
                       if (_formKey.currentState!.validate()) {
                         // Form is valid, proceed with login
                         ScaffoldMessenger.of(context).showSnackBar(

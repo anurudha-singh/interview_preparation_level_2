@@ -1,11 +1,11 @@
-import 'package:sharpsheel/screens/fifth_screen.dart';
-import 'package:sharpsheel/screens/first_screen.dart';
-import 'package:sharpsheel/screens/fourth_screen.dart';
-import 'package:sharpsheel/screens/second_screen.dart';
-import 'package:sharpsheel/screens/seventh_screen.dart';
-import 'package:sharpsheel/screens/sixth_screen.dart';
-import 'package:sharpsheel/screens/third_screen.dart';
-import 'package:sharpsheel/screens/users_list.dart';
+import 'package:Sharpshell/screens/fifth_screen.dart';
+import 'package:Sharpshell/screens/first_screen.dart';
+import 'package:Sharpshell/screens/fourth_screen.dart';
+import 'package:Sharpshell/screens/second_screen.dart';
+import 'package:Sharpshell/screens/seventh_screen.dart';
+import 'package:Sharpshell/screens/sixth_screen.dart';
+import 'package:Sharpshell/screens/third_screen.dart';
+import 'package:Sharpshell/screens/my_home_page.dart';
 
 dynamic routes() => {
   MyHomePage.routeName: (context) => const MyHomePage(title: 'Users List'),

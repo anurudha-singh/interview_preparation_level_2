@@ -1,6 +1,6 @@
 // Helper method to build drawer items with consistent styling
 import 'package:flutter/material.dart';
-import 'package:sharpsheel/utils/size_helper.dart';
+import 'package:Sharpshell/utils/size_helper.dart';
 
 Widget buildDrawerItem({
   required IconData icon,
@@ -51,20 +51,20 @@ void _showAboutDialog(BuildContext context) {
           children: [
             Icon(Icons.info, color: Colors.blue.shade600),
             SizedBox(width: 8),
-            Text('About SharpSheel'),
+            Text('About Sharpshell'),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('🚀 SharpSheel Demo App'),
+            Text('🚀 Sharpshell Demo App'),
             SizedBox(height: 8),
             Text('Version: 1.0.0'),
             SizedBox(height: 8),
             Text('Built with Flutter & ❤️'),
             SizedBox(height: 8),
-            Text('© 2025 SharpSheel.AI'),
+            Text('© 2025 Sharpshell.AI'),
           ],
         ),
         actions: [

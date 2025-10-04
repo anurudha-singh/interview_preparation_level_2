@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sharpsheel/screens/first_screen.dart';
-import 'package:sharpsheel/screens/third_screen.dart';
-import 'package:sharpsheel/utils/resuable_widget.dart';
-import 'package:sharpsheel/utils/size_helper.dart';
+import 'package:Sharpshell/screens/first_screen.dart';
+import 'package:Sharpshell/screens/third_screen.dart';
+import 'package:Sharpshell/utils/resuable_widget.dart';
+import 'package:Sharpshell/utils/size_helper.dart';
+import 'package:Sharpshell/utils/app_drawer.dart';
 
 class SecondScreen extends StatefulWidget {
   static String routeName = '/secondScreen';
@@ -24,6 +25,7 @@ class _SecondScreenState extends State<SecondScreen> {
 
     return Scaffold(
       appBar: AppBar(title: Text('Second Screen')),
+      drawer: AppDrawer(), // Add the persistent drawer
       body: LayoutBuilder(
         //It gives you the actual size constraints of the parent so you can adapt your UI dynamically.
         builder: (context, constraints) {
